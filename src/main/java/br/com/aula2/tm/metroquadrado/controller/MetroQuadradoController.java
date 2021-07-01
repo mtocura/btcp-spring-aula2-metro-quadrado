@@ -7,6 +7,7 @@ import br.com.aula2.tm.metroquadrado.utils.MetroQuadrado;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +18,7 @@ import java.util.Map;
 public class MetroQuadradoController {
 
     @PostMapping("/casa")
-    public ResponseEntity<?> createCasa(Casa casa) {
+    public ResponseEntity<?> createCasa(@RequestBody Casa casa) {
         double metrosQuadrados = 0.0;
 
         for(Comodo comodo : casa.getComodos()) {
@@ -27,7 +28,7 @@ public class MetroQuadradoController {
         double valor = MetroQuadrado.valorMetroQuadrado(metrosQuadrados);
         Comodo maiorComodo = MetroQuadrado.maiorComodo(casa.getComodos());
 
-        Map<Comodo, Double> comodoMetroQuadrado = MetroQuadrado.metroQuadradoComodo(casa.getComodos());
+        Map<String, Double> comodoMetroQuadrado = MetroQuadrado.metroQuadradoComodo(casa.getComodos());
 
         CasaDTO casaDTO = new CasaDTO(casa.getNome(), casa.getEndereco(), casa.getComodos(), metrosQuadrados, valor, maiorComodo, comodoMetroQuadrado);
 

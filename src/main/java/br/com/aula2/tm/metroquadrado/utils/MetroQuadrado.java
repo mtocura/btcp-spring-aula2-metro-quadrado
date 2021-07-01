@@ -30,11 +30,11 @@ public class MetroQuadrado {
         return maior;
     }
 
-    public static Map<Comodo, Double> metroQuadradoComodo(List<Comodo> comodos) {
-        Map<Comodo, Double> res = new HashMap<>();
+    public static Map<String, Double> metroQuadradoComodo(List<Comodo> comodos) {
+        Map<String, Double> res = new HashMap<>();
 
         for(Comodo comodo : comodos) {
-            res.put(comodo, metrosQuadrado(comodo.getLargura(), comodo.getComprimento()));
+            res.put(comodo.getNome(), metrosQuadrado(comodo.getLargura(), comodo.getComprimento()));
         }
 
         return res;

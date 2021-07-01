@@ -13,9 +13,9 @@ public class CasaDTO {
     private Double metrosQuadrados;
     private Double valor;
     private Comodo maiorComodo;
-    private Map<Comodo, Double> comodoMetroQuadrado;
+    private Map<String, Double> comodoMetroQuadrado;
 
-    public CasaDTO(String nome, String endereco, List<Comodo> comodos, Double metrosQuadrados, Double valor, Comodo maiorComodo, Map<Comodo, Double> comodoMetroQuadrado) {
+    public CasaDTO(String nome, String endereco, List<Comodo> comodos, Double metrosQuadrados, Double valor, Comodo maiorComodo, Map<String, Double> comodoMetroQuadrado) {
         this.nome = nome;
         this.endereco = endereco;
         this.comodos = comodos;
@@ -49,7 +49,7 @@ public class CasaDTO {
         return maiorComodo;
     }
 
-    public Map<Comodo, Double> getComodoMetroQuadrado() {
+    public Map<String, Double> getComodoMetroQuadrado() {
         return comodoMetroQuadrado;
     }
 }
